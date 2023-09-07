@@ -1,19 +1,28 @@
-<!doctype html>
-<html>                     
-    <body>
-        <div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div>
         <!-- 전체 영역 시작 -->
         <!-- 메인 홈 버튼 시작-->
         <h1><a href="/">the books I read</a></h1>
-            <!-- 책 제목과 저자 -->
-            <h2 style="display: inline;">{{title}} </h2>(저자: {{author}})
-            <!-- 책 설명 -->
-            <p>{{body}}</p>
+        <!-- 책 제목과 저자 -->
+        <h2 style="display: inline;">{{title}} </h2>(저자: {{author}})
+        <!-- 책 설명 -->
+        <p>{{body}}</p>
         <!-- CRUD 구현-->
         <ul>
-            <li><a href="/create/">create</a></li>
+            <li class="liv"><a href="/create/">create</a></li>
             <li><a href="/update/{{id}}/">update</a></li>
-            <li><form action="/delete/{{ id }}/" method="POST"><input type="submit" value="delete"></form></li>
+            <li>
+                <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="delete"></form>
+            </li>
         </ul>
         <ol>
             <!-- 책 목록 불러오기 -->
@@ -23,7 +32,5 @@
             </li>
             {% endfor %}
         </ol>
-    </body>
-    <!-- 전체 영역 끝 -->
-    </div>
+</body>
 </html>
