@@ -1,2 +1,2 @@
-# Project
- 프로젝트 시작
+# project
+프로젝트 저장소

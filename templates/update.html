@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <h1><a href="/">Back to Home</a></h1>
+</head>
+<body>
+    <h2>Update Book</h2>
+    <form action="/update/{{id}}/" method="POST">
+        <p>Title: <input type="text" name="title" value="{{ title }}"></p>
+        <p>Author: <input type="text" name="author" value="{{ author }}"></p>
+        <p>Body: <textarea name="body">{{ body }}</textarea></p>
+        <p><input type="submit" value="Update"></p>
+    </form>
+    <form action="/{search_name}">
+        
+    </form>
+</body>
+</html>
