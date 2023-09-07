@@ -100,34 +100,6 @@ def update(id):
         
         return redirect(f'/read/{id}/')
 
-# @app.route('/update/<int:id>/', methods=['GET', 'POST'])
-# def update(id):
-#     if request.method == 'GET': 
-#         title = ''
-#         author = ''
-#         body = ''
-#         for topic in topics:
-#             if id == topic['id']:
-#                 title = topic['title']
-#                 author = topic['author']
-#                 body = topic['body']
-#                 break
-#         return temp(topics, title, author, body, id)
-#     elif request.method == 'POST':
-#         global nextId
-#         title = request.form['title']
-#         author = request.form['author']
-#         body = request.form['body']
-#         for topic in topics:
-#             if id == topic['id']:
-#                 topic['title'] = title
-#                 topic['author'] = author
-#                 topic['body'] = body
-#                 break
-#         url = '/read/'+str(id)+'/'
-#         return redirect(url)
-
-
 @app.route('/delete/<int:id>/', methods=['POST']) 
 def delete(id):
     for topic in topics:
