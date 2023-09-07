@@ -11,6 +11,7 @@ topics = [
 ]
 
 #안녕하세요
+#반갑습니다.
 
 def template(contents, content):
     contentsUI = ''  
