@@ -10,39 +10,25 @@ topics = [
     {'id': 4, 'title': '이토록 공부가 재미있어지는 순간', 'author':'박성혁', 'body': '자신이 왜 공부를 하는지에 대해 다시 한 번 생각해보도록 해주며, 나의 마음에 대해 고민할 수 있게 해준다. 가족과 공부 내 마음에 대해서 다시한 번 돌아볼수 있게 해주었다'}
     
 ]
-#index 파일 새로 만들어서 html로 옮기기
-def template(contents, content):
-    contentsUI = ''  
-    if id != None:
-        return f'''<!doctype html>  
-        <html>                      
-            <body>
-                <h1><a href="/">the books I read</a></h1>
-                <ol>
-                    {contents}
-                </ol>
-                {content}
-                <ul>
-                    <li><a href="/create/">create</a></li>
-                    {contentsUI}
-                </ul>
-            </body>
-        </html>
-        '''
+
+def template(contents, title, body):
+    return render_template('home.html', contents=contents, title=title, body=body)
+
 def temp(contents, title, author, body, id=None):
     if id != None:
-        return render_template(f'index.html',contents=contents,title=title, author=author, body=body, id=id)
-    return render_template(f'index.html',contents=contents,title=title, author=author, body=body,)
+        return render_template('index.html',contents=contents,title=title, author=author, body=body, id=id)
+    return render_template('index.html',contents=contents,title=title, author=author, body=body,)
 
-def getContents():
-    liTags = ''
-    for topic in topics:
-        liTags = liTags + f'<li><a href="/read/{topic["id"]}/">{topic["title"]}</a></li>'
-    return liTags
+def create_book():
+    return render_template('create.html')
 
 @app.route('/')
 def index():
-    return template(getContents(), '책을 읽으며..(다음에 읽을 책 추가하기)')
+    title = ''
+    body = '책을 읽으며...'
+    for topic in topics:
+        title = topic['title']
+    return template(topics, title, body)
 
 @app.route('/read/<int:id>/') 
 def read(id):
@@ -60,15 +46,7 @@ def read(id):
 @app.route('/create/', methods=['GET', 'POST']) 
 def create():
     if request.method == 'GET': 
-        content = '''
-            <form action="/create/" method="POST">
-                <p><input type="text" name="title" placeholder="title"></p>
-                <p><textarea name="author" placeholder="author"></textarea></p>
-                <p><textarea name="body" placeholder="body"></textarea></p>
-                <p><input type="submit" value="create"></p>
-            </form>
-        '''
-        return template(getContents(), content)
+        return create_book()
     elif request.method == 'POST':
         global nextId
         title = request.form['title']
@@ -79,7 +57,6 @@ def create():
         url = '/read/'+str(nextId)+'/'
         nextId = nextId + 1
         return redirect(url)
-
 
 @app.route('/update/<int:id>/', methods=['GET', 'POST'])
 def update(id):
