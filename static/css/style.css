@@ -1,4 +1,5 @@
-.liv{
-    width: 100%;
-    background-color: red;
+@charset 'uft-8';
+
+*{
+    box-sizing: border-box;
 }
