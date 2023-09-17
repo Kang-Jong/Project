@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Check Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -11,9 +12,9 @@
     <div>
             <!-- 전체 영역 시작 -->
         <!-- 메인 홈 버튼 시작-->
-        <h1><a href="/">Check Books</a></h1>
+        <h1><a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200"></a></h1>
             <!-- 책 제목과 저자 -->
-        <h2 style="display: inline;">{{title}} </h2>(저자: {{author}})
+        <h2 style="display: inline;">{{title}} </h2> <h6  style="display: inline;">(저자: {{author}})</h6>
         <!-- 책 설명 -->
         <p>{{body}}</p>
         <!-- CRUD 구현-->

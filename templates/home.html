@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Check Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-    <h1><a href="/">Check Books</a></h1>
-    <ol>
-        {% for topic in contents %}
-        <li>
-            <a href="/read/{{ topic['id'] }}/">{{ topic['title'] }}</a>
-        </li>
-        {% endfor %}
-    </ol>
-
-        <ul class="crud_btn">
-            <li><a href="/create/">create</a></li>
-            <li><a href="/update/{{id}}/">update</a></li>
+    <div class="wrap">
+        <header class="header">
+            <div class="headerInner"></div>
+        </header>
+        <h1><a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200"></a></h1>
+        <ol>
+            {% for topic in contents %}
             <li>
-                <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="delete"></form>
+                <a href="/read/{{ topic['id'] }}/">{{ topic['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ol>
+    
+        <ul class="cud_btn">
+            <li><a href="/create/"><input type="submit" value="Create"></a></li>
+            <li><a href="/update/{{id}}/"><input type="submit" value="Update"></a></li>
+            <li>
+                <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="Delete"></form>
             </li>
         </ul>
         {{body}}
+    </div>
 </body>
 
 </html>
