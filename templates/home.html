@@ -11,25 +11,32 @@
 <body>
     <div class="wrap">
         <header class="header">
-            <div class="headerInner"></div>
+            <div class="headerInner">
+
+            <div class="main_logo">
+                <h1>
+                    <a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200" alt="메인로고"></a>
+                </h1>
+            </div>
+            
+            <ol>
+                {% for topic in contents %}
+                <li>
+                    <a href="/read/{{ topic['id'] }}/">{{ topic['title'] }}</a>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <ul class="cud_btn">
+                <li><a href="/create/"><input type="submit" value="Create"></a></li>
+                <li><a href="/update/{{id}}/"><input type="submit" value="Update"></a></li>
+                <li>
+                    <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="Delete"></form>
+                </li>
+            </ul>
+            {{body}}
+            </div>
         </header>
-        <h1><a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200"></a></h1>
-        <ol>
-            {% for topic in contents %}
-            <li>
-                <a href="/read/{{ topic['id'] }}/">{{ topic['title'] }}</a>
-            </li>
-            {% endfor %}
-        </ol>
-    
-        <ul class="cud_btn">
-            <li><a href="/create/"><input type="submit" value="Create"></a></li>
-            <li><a href="/update/{{id}}/"><input type="submit" value="Update"></a></li>
-            <li>
-                <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="Delete"></form>
-            </li>
-        </ul>
-        {{body}}
     </div>
 </body>
 
