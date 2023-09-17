@@ -25,7 +25,7 @@ def create_book():
 @app.route('/')
 def index():
     title = ''
-    body = '책을 읽으며...'
+    body = '''줄이 길어지면 스크롤이 생기니까 패딩말고 그냥 제일 아래에 붙어있게 할 수 있는 걸 찾아야함'''
     for topic in topics:
         title = topic['title']
     return template(topics, title, body)
