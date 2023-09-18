@@ -45,15 +45,23 @@ a{
 .cud_btn > ul > li > a > input{
     width: 100px;
     height: 60px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .cud_btn > ul > li > form > input{
     width: 100px;
     height: 60px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.cud_btn_create{
-    
+.cud_btn_create > a > input{
+    background: url(../img/create_button.png) left top no-repeat;
+    overflow: hidden;
+    background-size: contain;
+    height: 30px;
+    width: 20px;
 }
 
 .books_list{
