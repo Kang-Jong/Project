@@ -11,8 +11,8 @@ topics = [
     
 ]
 
-def template(contents, title, body):
-    return render_template('home.html', contents=contents, title=title, body=body)
+def template(contents, title, body, body2):
+    return render_template('home.html', contents=contents, title=title, body=body, body2=body2)
 
 def temp(contents, title, author, body, id=None):
     if id != None:
@@ -24,11 +24,12 @@ def create_book():
 
 @app.route('/')
 def index():
-    title = ''
-    body = '''줄이 길어지면 스크롤이 생기니까 패딩말고 그냥 제일 아래에 붙어있게 할 수 있는 걸 찾아야함'''
+    title = ''''''
+    body = '''책을 읽으며 논리력과 사고력을 기를 수 있었습니다.'''
+    body2 = '''책을 읽어봅시다.'''
     for topic in topics:
         title = topic['title']
-    return template(topics, title, body)
+    return template(topics, title, body, body2)
 
 @app.route('/read/<int:id>/') 
 def read(id):
