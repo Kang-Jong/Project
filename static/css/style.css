@@ -25,6 +25,10 @@ a{
     border-bottom: 1px solid #eee;
 }
 
+.main_logo h1 > a > img{
+    border: 1px solid #000;
+}
+
 .header_inner{
     display: flex;
     width: 100%;
@@ -49,19 +53,28 @@ a{
     border-radius: 5px;
 }
 
-.cud_btn > ul > li > form > input{
-    width: 100px;
-    height: 60px;
-    cursor: pointer;
-    border-radius: 5px;
+.cud_btn_create > a > input{
+    background: url(../img/create_button.png) left center no-repeat;
+    overflow: hidden;
+    background-size: 30px;
+    font-size: 20px;
+    padding-left: 30px;
 }
 
-.cud_btn_create > a > input{
-    background: url(../img/create_button.png) left top no-repeat;
+.cud_btn_update > a > input{
+    background: url(../img/shield.png) left center no-repeat;
     overflow: hidden;
-    background-size: contain;
-    height: 30px;
-    width: 20px;
+    background-size: 30px;
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+.cud_btn_delete > a > input{
+    background: url(../img/shield.png) left center no-repeat;
+    overflow: hidden;
+    background-size: 30px;
+    font-size: 20px;
+    padding-left: 30px; 
 }
 
 .books_list{
