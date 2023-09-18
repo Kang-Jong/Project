@@ -22,9 +22,9 @@
 
                 <div class="cud_btn">
                     <ul>
-                        <li><a href="/create/"><input type="submit" value="Create"></a></li>
-                        <li><a href="/update/{{id}}/"><input type="submit" value="Update"></a></li>
-                        <li>
+                        <li class="cud_btn_create"><a href="/create/"><input type="submit" value="Create"></a></li>
+                        <li class="cud_btn_update"><a href="/update/{{id}}/"><input type="submit" value="Update"></a></li>
+                        <li class="cud_btn_delete">
                             <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="Delete"></form>
                         </li>
                     </ul>
