@@ -139,6 +139,6 @@ a{
     background-color: skyblue;
 }
 
-.body_section > button > a:hover{
+.body_section > form > button:hover{
     color: white;
 }
