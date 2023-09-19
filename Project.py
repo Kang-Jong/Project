@@ -87,5 +87,16 @@ def delete(id):
             break
     return redirect('/')
 
+@app.route('/read/<int:id>', methods=["POST"])
+def reading(id):
+    for topic in topics[id-1:]:
+        if topic['title']:
+            return redirect(f'/read/{topic["id"]}')
+    return '''<script>
+        window.onload = function() {
+        alert("찾을 수 있는 책이 없습니다, 메인 홈페이지로 돌아가겠습니다.");
+        window.location.href = '/';
+        }
+        </script>'''
 
 app.run(debug=True)
