@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h1><a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200"></a></h1>
+    <div class="wrap">
+        <header class="header">
+            <div class="header_inner">
+                <div class="main_logo">
+                    <h1>
+                        <a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200" height="80"></a>
+                    </h1>
+                </div>
+                <h2 class="main_word">Create Books</h2>
+            </div>
+        </header>
 
-    <h2>Create Book</h2>
-
-    <form action="/create/" method="POST">
-        <p><input type="text" name="title" placeholder="title"></p>
-        <p><textarea name="author" placeholder="author"></textarea></p>
-        <p><textarea name="body" placeholder="body"></textarea></p>
-        <p><input type="submit" value ="create"></p>
-    </form> 
+        <div class="create_books_content">
+            <form action="/create/" method="POST">
+                <p class="create_books_content_title"><input type="text" name="title" placeholder="제목란"></p>
+                <p class="create_books_content_author"><input type="text" name="author" placeholder="저자란"></input></p>
+                <p class="create_books_content_body"><textarea name="body" placeholder="책의 설명을 적어주세요."></textarea></p>
+                <p class="create_books_content_submit"><input type="submit" value="create"></p>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

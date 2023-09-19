@@ -1,22 +1,33 @@
-<!doctype html>
-<html lang="ko"">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>the books i read</title>
+    <title>Update Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
-    <h1><a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200"></a></h1>
 
-    <h2>Update Book</h2>
-    
-    <form action="/update/{{id}}/" method="POST">
-        <p>Title: <input type="text" name="title" value="{{ title }}"></p>
-        <p>Author: <input type="text" name="author" value="{{ author }}"></p>
-        <p>Body: <textarea name="body">{{ body }}</textarea></p>
-        <p><input type="submit" value="Update"></p>
-    </form>
-    <form action="/{search_name}">
-        
-    </form>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header_inner">
+                <div class="main_logo">
+                    <h1>
+                        <a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200" height="80"></a>
+                    </h1>
+                </div>
+                <h2 class="main_word">Update Books</h2>
+            </div>
+        </header>
+
+        <div class="update_books_content">
+            <form action="/update/{{id}}/" method="POST">
+                <p class="update_books_content_title"><input type="text" name="title" value="{{ title }}"></p>
+                <p class="update_books_content_author"><input type="text" name="author" value="{{ author }}"></p>
+                <p class="update_books_content_body"><textarea name="body">{{ body }}</textarea></p>
+                <p class="update_books_content_submit"><input type="submit" value="Update"></p>
+            </form>
+        </div>
+    </div>
 </body>

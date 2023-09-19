@@ -142,3 +142,115 @@ a{
 .body_section > form > button:hover{
     color: white;
 }
+
+/* 여기서 부터 create.html */
+
+.create_books_content{
+    padding-top: 85px;
+    height: 100%;
+}
+
+.main_word{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.create_books_content{
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 10%;   
+    background: url(../img/Book_script2.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create_books_content_title{
+    display: inline-block;
+}
+
+.create_books_content_author{
+    display: inline-block;
+}
+
+.create_books_content_title > input{
+    width: auto;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px ;
+}
+
+.create_books_content_author > input{
+    width: auto;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px ;
+}
+
+.create_books_content_body > textarea{
+    width: 700px;
+    height: 300px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px ;
+}
+
+.create_books_content_submit > input{
+    width: 100px;
+    height: 50px;
+    font-size: 17px;
+}
+
+/* 여기서부터는 update.html */
+.update_books_content{
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 10%;   
+    background: url(../img/Book_script3.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.update_books_content_title{
+    display: inline-block;
+}
+
+.update_books_content_author{
+    display: inline-block;
+}
+
+.update_books_content_title > input{
+    width: auto;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px ;
+}
+
+.update_books_content_author > input{
+    width: auto;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px ;
+}
+
+.update_books_content_body > textarea{
+    width: 700px;
+    height: 300px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px ;
+}
+
+.update_books_content_submit > input{
+    width: 100px;
+    height: 50px;
+    font-size: 17px;
+}
