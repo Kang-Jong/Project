@@ -86,6 +86,7 @@ a{
 }
 
 .books_list > ol > li > a{
+    font-weight: bold;
     border: 2px solid #eee;
 }
 
@@ -108,6 +109,8 @@ a{
     align-items: start;
     justify-content: center;
     padding-left: 250px;
+    position:relative;
+    height:auto;
 }
 
 .body_section > h2{
@@ -124,7 +127,8 @@ a{
 }
 
 .footer_information{
-    padding-top: 5px;
+    position:absolute;
+    bottom: 3px;
 }
 
 .body_section_btn{
@@ -253,4 +257,74 @@ a{
     width: 100px;
     height: 50px;
     font-size: 17px;
+}
+/* 여기서부터는 index.html */
+
+.index_cud_btn_delete > form > input{
+    background: url(../img/delete_button.png) left center no-repeat;
+    overflow: hidden;
+    background-size: 30px;
+    font-size: 20px;
+    padding-left: 30px; 
+    height: 60px;
+    cursor: pointer;
+}
+
+.index_cud_btn_update > a > input{
+    background: url(../img/update_button.png) left center no-repeat;
+    overflow: hidden;
+    background-size: 30px;
+    font-size: 20px;
+    padding-left: 30px; 
+    height: 60px;
+    cursor: pointer;
+}
+
+.index_books_list{
+    margin-top: 6px;
+    padding-top: 80px;
+    padding-left: 40px;
+    padding-bottom: 1%;
+}
+
+.index_books_list > ol > li > a{
+    font-weight: bold;
+    border: 2px solid #eee;
+}
+
+.index_books_list > ol > li{
+    margin-bottom: 10px;
+}
+
+.index_books_list > ol{
+    float: left;
+}
+
+.title_author{
+    float: left;
+    padding-left: 27%;
+    flex-direction: column;
+}
+
+.title_author > h2{
+    font-weight: bold;
+}
+
+.index_body_content{
+    padding-top: 50px;
+    padding-left: 33%;
+    flex-direction: column;
+}
+
+.index_body_content > p{
+    width: 800px;
+}
+
+.index_body_bottom{
+    background: url(../img/marshmallow-2572978_1280.jpg) no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0px;
 }
