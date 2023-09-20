@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +10,54 @@
 </head>
 
 <body>
-    <div>
-            <!-- 전체 영역 시작 -->
-        <!-- 메인 홈 버튼 시작-->
-        <h1><a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200"></a></h1>
-            <!-- 책 제목과 저자 -->
-        <h2 style="display: inline;">{{title}} </h2> <h6  style="display: inline;">(저자: {{author}})</h6>
-        <!-- 책 설명 -->
-        <p>{{body}}</p>
-        <!-- CRUD 구현-->
-        <ul class="crud_btn">
-            <li><a href="/create/">create</a></li>
-            <li><a href="/update/{{id}}/">update</a></li>
-            <li>
-                <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="delete"></form>
-            </li>
-        </ul>
-        <ol>
-            <!-- 책 목록 불러오기 -->
-            {% for topic in contents %}
-            <li>
-                <a href="/read/{{ topic['id'] }}/">{{ topic['title'] }}</a>
-            </li>
-            {% endfor %}
-        </ol>
+    <div class="wrap">
+        <header class="header">
+            <div class="header_inner">
+
+                <div class="main_logo">
+                    <h1>
+                        <a href="/"><img src="{{url_for('static', filename='../static/img/BoOK_Logo.jpg')}}" width="200" height="80" alt="메인로고"></a>
+                    </h1>
+                </div>
+
+                <div class="cud_btn">
+                    <ul>
+                        <li class="cud_btn_create"><a href="/create/"><input type="submit" value="Create"></a></li>
+                        <li class="index_cud_btn_update"><a href="/update/{{id}}/"><input type="submit"
+                                    value="Update"></a></li>
+                        <li class="index_cud_btn_delete">
+                            <form action="/delete/{{ id }}/" method="POST"><input type="submit" value="delete"></form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="index_body_section">
+            <div class="index_books_list">
+                <ol>
+                    {% for topic in contents %}
+                    <li>
+                        <a href="/read/{{ topic['id'] }}/">{{ topic['title'] }}</a>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+            <div class="title_author">
+                <h2 style="display: inline;">{{title}} </h2>
+                <h6 style="display: inline;">(저자: {{author}})</h6>
+            </div>
+
+            <div class="index_body_content">
+                <p>{{body}}</p>
+            </div>
+
+            <div class="index_body_bottom">
+                <img src="../static/img/marshmallow-2572978_1280.jpg" alt="">
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
