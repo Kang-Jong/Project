@@ -1,4 +1,7 @@
 from flask import Flask, request, redirect,render_template
+from requests import get
+from bs4 import BeautifulSoup
+
 
 app = Flask(__name__)
 
@@ -10,14 +13,23 @@ topics = [
     {'id': 4, 'title': '이토록 공부가 재미있어지는 순간', 'author':'박성혁', 'body': '자신이 왜 공부를 하는지에 대해 다시 한 번 생각해보도록 해주며, 나의 마음에 대해 고민할 수 있게 해준다. 가족과 공부 내 마음에 대해서 다시한 번 돌아볼수 있게 해주었다'}
     
 ]
+def sale(topics, title, author, body, id):
+    base_url = 'https://www.yes24.com/product/search?query='
+    search_term = title
 
-def template(contents, title, body, body2):
-    return render_template('home.html', contents=contents, title=title, body=body, body2=body2)
+    response = get(f'{base_url}{search_term}')
 
-def temp(contents, title, author, body, id=None):
+    soup = BeautifulSoup(response.text, 'html.parser')
+    sale = (soup.find('em', class_='yes_b')).string
+    return temp(topics, title, author, body, id, sale)
+
+def template(contents, title, body, body2, sale=None):
+    return render_template('home.html', contents=contents, title=title, body=body, body2=body2, sale=sale)
+
+def temp(contents, title, author, body, id=None, sale=None):
     if id != None:
-        return render_template('index.html',contents=contents,title=title, author=author, body=body, id=id)
-    return render_template('index.html',contents=contents,title=title, author=author, body=body,)
+        return render_template('index.html',contents=contents,title=title, author=author, body=body, id=id, sale=sale)
+    return render_template('index.html',contents=contents,title=title, author=author, body=body, sale=sale)
 
 def create_book():
     return render_template('create.html')
@@ -42,7 +54,7 @@ def read(id):
             author = topic['author']
             body = topic['body']
             break
-    return temp(topics, title, author, body, id)
+    return sale(topics, title, author, body, id)
 
 @app.route('/create/', methods=['GET', 'POST']) 
 def create():
